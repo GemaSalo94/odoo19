@@ -1,0 +1,41 @@
+<odoo>
+<data>
+<!-- explicit list view definition -->
+<record id="libreria_v2.genero_list" model="ir.ui.view">
+<field name="name">Listado de Géneros</field>
+<field name="model">libreria_v2.genero</field>
+<field name="arch" type="xml">
+<list string="Géneros">
+<field name="name" />
+</list>
+</field>
+</record>
+<!-- Vista de formulario para genero -->
+<record id="view_genero_form_v2" model="ir.ui.view">
+<field name="name">Formulario genero</field>
+<field name="model">libreria_v2.genero</field>
+<field name="arch" type="xml">
+<form>
+<sheet>
+<group>
+<field name="name" />
+<field name="descripcion" />
+</group>
+<notebook>
+<page string="Libros">
+<field name="libro_ids" />
+</page>
+</notebook>
+</sheet>
+</form>
+</field>
+</record>
+<!-- actions opening views on models -->
+<record model="ir.actions.act_window"
+id="libreria_v2.genero_action_window">
+<field name="name">Géneros</field>
+<field name="res_model">libreria_v2.genero</field>
+<field name="view_mode">list,form</field>
+</record>
+</data>
+</odoo>

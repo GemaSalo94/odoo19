@@ -1,0 +1,61 @@
+<odoo>
+<data>
+<!-- explicit list view definition -->
+<record model="ir.ui.view" id="libreria_v2.libro_list">
+<field name="name">Listado de Libros</field>
+<field name="model">libreria_v2.libro</field>
+<field name="arch" type="xml">
+<list>
+<field name="portada" widget="image" options="{'size': [50, 150]}"
+/>
+<field name="name" />
+<field name="descripcion" />
+<field name="isbn" />
+<field name="fecha_publicacion" />
+</list>
+</field>
+</record>
+
+
+
+<record model="ir.ui.view" id="libreria_v2.esta_mi_vista_tipo_libro_form">
+<field name="name">Formulario Libro</field>
+<field name="model">libreria_v2.libro</field>
+<field name="arch" type="xml">
+<form string="Formulario Libro">
+<sheet>
+<group>
+<field name="portada" widget="image" options="{'size': [150,
+250]}" />
+<group>
+<field name="name" />
+<field name="autor_id" />
+</group>
+<group>
+<field name="isbn" />
+<field name="fecha_publicacion" />
+</group>
+</group>
+
+<!-- aquí aparecen las pestañas -->
+<notebook>
+<page string="Géneros del libro">
+<field name="genero_ids" />
+</page>
+<page string="Descripción">
+<field name="descripcion" />
+</page>
+</notebook>
+</sheet>
+</form>
+</field>
+</record>
+
+<!-- actions opening views on models -->
+<record model="ir.actions.act_window" id="libreria_v2.libro_action_window">
+<field name="name">Listado de Libros</field>
+<field name="res_model">libreria_v2.libro</field>
+<field name="view_mode">list,form</field>
+</record>
+</data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_estado,access_estado,model_project_management_estado,base.group_user,1,1,1,1
+access_proyecto,access_proyecto,model_project_management_proyecto,base.group_user,1,1,1,1
+access_trabajo,access_trabajo,model_project_management_trabajo,base.group_user,1,1,1,1
+access_actividad,access_actividad,model_project_management_actividad,base.group_user,1,1,1,1

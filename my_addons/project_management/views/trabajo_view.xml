@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_trabajo_search" model="ir.ui.view">
+            <field name="name">trabajo.search</field>
+            <field name="model">project_management.trabajo</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="proyecto_id"/>
+                    <field name="responsable_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_trabajo_tree" model="ir.ui.view">
+            <field name="name">trabajo.list</field>
+            <field name="model">project_management.trabajo</field>
+            <field name="arch" type="xml">
+                <list decoration-danger="avance &lt; 50" 
+                      decoration-info="avance >= 50 and avance &lt; 100" 
+                      decoration-success="avance == 100">
+                    <field name="name"/>
+                    <field name="proyecto_id"/>
+                    <field name="responsable_id"/>
+                    <field name="importancia"/>
+                    <field name="estado"/>
+                    <field name="avance" widget="progressbar"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_trabajo_form" model="ir.ui.view">
+            <field name="name">trabajo.form</field>
+            <field name="model">project_management.trabajo</field>
+            <field name="arch" type="xml">
+                <form string="Trabajo">
+                    <header>
+                        <field name="estado" widget="statusbar" statusbar_visible="pendiente,progreso,revision,finalizado" options="{'clickable': '1'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Descripción del Trabajo..."/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="proyecto_id"/>
+                                <field name="responsable_id"/>
+                                <field name="importancia"/>
+                            </group>
+                            <group>
+                                <field name="fecha_inicio"/>
+                                <field name="fecha_fin"/>
+                                <field name="avance" widget="progressbar"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Actividades de este trabajo">
+                                <field name="actividad_ids">
+                                    <list editable="bottom" 
+                                          decoration-danger="avance &lt; 50" 
+                                          decoration-info="avance >= 50 and avance &lt; 100" 
+                                          decoration-success="avance == 100">
+                                        <field name="name"/>
+                                        <field name="responsable_id"/>
+                                        <field name="estado"/>
+                                        <field name="avance"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                     <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_trabajo" model="ir.actions.act_window">
+            <field name="name">Trabajos</field>
+            <field name="res_model">project_management.trabajo</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="view_trabajo_search"/>
+        </record>
+    </data>
+</odoo>

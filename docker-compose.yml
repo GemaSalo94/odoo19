@@ -1,0 +1,50 @@
+version: '3.3'  
+#2 Esta línea indica la versión del formato de Docker Compose.  
+
+services:  
+#Servicios para Odoo (la aplicación web) y otro para PostgreSQL (la base de datos).
+
+#1 Definimos el servicio Web, en este caso Odoo
+  web:  
+    image: odoo:19  
+    #1 Indicamos que depende de "db", por lo cual debe ser procesada primero "db"
+    depends_on:
+        - db  
+    ports:
+      - 8069:8069  
+    #1 Mapeamos los directorios locales con los directorio del contenedor
+    volumes:
+      - ./my_addons:/mnt/extra-addons  
+      #2 Carpeta donde Odoo guarda archivos binarios, como adjuntos o imágenes subidas.  
+      #2 Este mapeo asegura que los archivos persistan aunque se reinicie el contenedor.
+      - ./odoo_data/filestore:/var/lib/odoo/filestore  
+      #2 Guarda las sesiones de los usuarios fuera del contenedor, permitiendo mantenerlas tras reinicios.
+      - ./odoo_data/odoo/sessions:/var/lib/odoo/sessions 
+      #2 Directorio donde se puede colocar el archivo `odoo.conf` local con configuraciones personalizadas 
+      - ./odoo_config:/etc/odoo  
+      - ./logs:/var/log/odoo  
+      #2 Guarda los registros de Odoo en una carpeta local.  
+    #1 Indicamos que el contenedor funcionara con usuario root y no con usuario odoo
+    user: root  
+    environment:
+      - HOST=db  
+      - USER=odoo  
+      - PASSWORD=odoo  
+    
+    #2 Inicia Odoo en modo desarrollador, lo cual activa características útiles como:  
+    command: --dev=all  
+  
+  #2 Segundo servicio: la base de datos PostgreSQL que usará Odoo para almacenar toda la información.
+  db:  
+    image: postgres:15 
+    ports:
+      - 5432:5432  
+    environment:
+      - POSTGRES_PASSWORD=odoo  
+      - POSTGRES_USER=odoo  
+      - POSTGRES_DB=postgres  
+        
+    #2 Guarda los datos de PostgreSQL de forma persistente en el sistema anfitrión.  	
+    #2 Así, aunque borres o reinicies el contenedor, la información de la base de datos se conserva.
+    volumes:
+      - ./odoo_data/dataPostgres:/var/lib/postgresql/data  

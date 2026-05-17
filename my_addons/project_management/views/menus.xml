@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_project_management_root"
+                  name="Gestión de Proyectos"
+                  sequence="10"/>
+
+        <menuitem id="menu_project_management_main"
+                  name="Planificación"
+                  parent="menu_project_management_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_proyecto"
+                  name="Proyectos"
+                  parent="menu_project_management_main"
+                  action="action_proyecto"
+                  sequence="10"/>
+
+        <menuitem id="menu_trabajo"
+                  name="Trabajos"
+                  parent="menu_project_management_main"
+                  action="action_trabajo"
+                  sequence="20"/>
+
+        <menuitem id="menu_actividad"
+                  name="Actividades"
+                  parent="menu_project_management_main"
+                  action="action_actividad"
+                  sequence="30"/>
+
+        <menuitem id="menu_project_management_config"
+                  name="Configuración"
+                  parent="menu_project_management_root"
+                  sequence="100"/>
+
+        <menuitem id="menu_estado_proyecto"
+                  name="Estados de Proyecto"
+                  parent="menu_project_management_config"
+                  action="action_estados_proyecto"
+                  sequence="10"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_actividad_search" model="ir.ui.view">
+            <field name="name">actividad.search</field>
+            <field name="model">project_management.actividad</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="trabajo_id"/>
+                    <field name="responsable_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_actividad_tree" model="ir.ui.view">
+            <field name="name">actividad.list</field>
+            <field name="model">project_management.actividad</field>
+            <field name="arch" type="xml">
+                <list decoration-danger="avance &lt; 50" 
+                      decoration-info="avance >= 50 and avance &lt; 100" 
+                      decoration-success="avance == 100">
+                    <field name="name"/>
+                    <field name="trabajo_id"/>
+                    <field name="responsable_id"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="estado"/>
+                    <field name="avance" widget="progressbar"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_actividad_form" model="ir.ui.view">
+            <field name="name">actividad.form</field>
+            <field name="model">project_management.actividad</field>
+            <field name="arch" type="xml">
+                <form string="Actividad">
+                    <header>
+                        <field name="estado" widget="statusbar" statusbar_visible="pendiente,curso,revision,finalizada" options="{'clickable': '1'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Nombre de la actividad..."/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="trabajo_id"/>
+                                <field name="responsable_id"/>
+                            </group>
+                            <group>
+                                <field name="fecha_inicio"/>
+                                <field name="fecha_fin"/>
+                                <field name="avance"/> 
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Detalles de la Tarea">
+                                <field name="detalle" placeholder="Describe aquí los detalles de lo que hay que hacer..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                     <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_actividad" model="ir.actions.act_window">
+            <field name="name">Actividades</field>
+            <field name="res_model">project_management.actividad</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="view_actividad_search"/>
+        </record>
+    </data>
+</odoo>

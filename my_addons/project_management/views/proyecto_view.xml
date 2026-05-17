@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_proyecto_tree" model="ir.ui.view">
+            <field name="name">proyecto.list</field>
+            <field name="model">project_management.proyecto</field>
+            <field name="arch" type="xml">
+                <list decoration-info="progreso &lt; 100" decoration-success="progreso == 100">
+                    <field name="name"/>
+                    <field name="responsable_id"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="estado_id"/>
+                    <field name="progreso" widget="progressbar"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_proyecto_form" model="ir.ui.view">
+            <field name="name">proyecto.form</field>
+            <field name="model">project_management.proyecto</field>
+            <field name="arch" type="xml">
+                <form string="Proyecto">
+                    <header>
+                        <field name="estado_id" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
+                    
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Nombre del Proyecto"/>
+                            <h1>
+                                <field name="name" placeholder="Ej. Migración de Servidores..."/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="responsable_id"/>
+                                <field name="fecha_inicio"/>
+                                <field name="fecha_fin"/>
+                            </group>
+                            <group>
+                                <field name="progreso" widget="progressbar"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Trabajos">
+                                <field name="trabajo_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="responsable_id"/>
+                                        <field name="estado"/>
+                                        <field name="avance" widget="progressbar"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Descripción">
+                                <field name="descripcion" placeholder="Notas adicionales del proyecto..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                     <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_proyecto" model="ir.actions.act_window">
+            <field name="name">Proyectos</field>
+            <field name="res_model">project_management.proyecto</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>

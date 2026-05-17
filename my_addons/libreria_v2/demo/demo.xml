@@ -1,0 +1,112 @@
+<odoo>
+<data>
+<record id="genero1" model="libreria_v2.genero">
+<field name="name">Novela de caballerías</field>
+</record>
+<record id="genero2" model="libreria_v2.genero">
+<field name="name">Novela picaresca</field>
+</record>
+<record id="genero3" model="libreria_v2.genero">
+<field name="name">Sátira</field>
+</record>
+<record id="genero4" model="libreria_v2.genero">
+<field name="name">Ficción moderna</field>
+</record>
+<record id="genero5" model="libreria_v2.genero">
+<field name="name">Comedia</field>
+</record>
+<record id="genero6" model="libreria_v2.genero">
+<field name="name">Tragedia</field>
+</record>
+<record id="genero7" model="libreria_v2.genero">
+<field name="name">Histórica</field>
+</record>
+<record id="genero8" model="libreria_v2.genero">
+<field name="name">Romance</field>
+</record>
+<record id="genero9" model="libreria_v2.genero">
+<field name="name">Fantasía</field>
+</record>
+<record id="genero10" model="libreria_v2.genero">
+<field name="name">Ciencia ficción</field>
+</record>
+<record id="genero11" model="libreria_v2.genero">
+<field name="name">Misterio</field>
+</record>
+<record id="genero12" model="libreria_v2.genero">
+<field name="name">Terror</field>
+</record>
+<record id="autor1" model="libreria_v2.autor">
+<field name="name">Miguel de Cervantes</field>
+</record>
+<record id="autor2" model="libreria_v2.autor">
+<field name="name">William Shakespeare</field>
+</record>
+<record id="autor3" model="libreria_v2.autor">
+<field name="name">J.R.R. Tolkien</field>
+</record>
+<record id="autor4" model="libreria_v2.autor">
+<field name="name">Gabriel García Márquez</field>
+</record>
+<record id="autor5" model="libreria_v2.autor">
+<field name="name">Jane Austen</field>
+</record>
+<record id="autor6" model="libreria_v2.autor">
+<field name="name">George Orwell</field>
+</record>
+<record id="autor7" model="libreria_v2.autor">
+<field name="name">Mark Twain</field>
+</record>
+<record id="autor8" model="libreria_v2.autor">
+<field name="name">Leo Tolstoy</field>
+</record>
+<record id="autor9" model="libreria_v2.autor">
+<field name="name">Edgar Allan Poe</field>
+</record>
+<record id="autor10" model="libreria_v2.autor">
+<field name="name">Fyodor Dostoevsky</field>
+</record>
+<record id="autor11" model="libreria_v2.autor">
+<field name="name">Homer</field>
+</record>
+<record id="autor12" model="libreria_v2.autor">
+<field name="name">Virginia Woolf</field>
+</record>
+<record id="libro1" model="libreria_v2.libro">
+<field name="name">El Señor de los Anillos 1. La Comunidad del
+Anillo</field>
+<field name="isbn">123456789-A</field>
+<field name="descripcion">Ambientada en la Tierra Media, cuenta la
+historia del Señor Oscuro Sauron, que está buscando el Anillo Único, el cual
+ha acabado en poder del hobbit Frodo Bolsón (Elijah Wood). El destino de la
+Tierra Media está en juego mientras Frodo y ocho compañeros que forman la
+Compañía del Anillo comienzan un largo y peligroso viaje hacia el Monte del
+Destino en la tierra de Mordor, que es el único lugar en el que el anillo
+puede ser destruido.</field>
+</record>
+<record id="libro2" model="libreria_v2.libro">
+<field name="name">El Señor de los Anillos nº 02/03 Las Dos
+Torres</field>
+<field name="isbn">123456789-B</field>
+<field name="descripcion">Empieza tu viaje a la Tierra Media. Los
+libros que han inspirado la nueva serie EL SEÑOR DE LOS ANILLOS: LOS ANILLOS
+DEL PODER. La segunda entrega de la trilogía de J. R. R. Tolkien El Señor de
+los Anillos. La Compañía se ha disuelto y sus integrantes emprenden caminos
+separados. Frodo y Sam avanzan solos en su viaje a lo largo del río Anduin,
+perseguidos por la sombra misteriosa de un ser extraño que también ambiciona
+la posesión del Anillo. Mientras, hombres, elfos y enanos se preparan para la
+batalla final contra las fuerzas del Señor del Mal</field>
+</record>
+<record id="libro3" model="libreria_v2.libro">
+<field name="name">La historia Interminable</field>
+<field name="isbn">9876854-CD</field>
+<field name="descripcion">Se trata de una novela que a pesar de
+haber sido calificada como «un nuevo clásico de la literatura juvenil»,3
+siempre fue defendida por su autor como una novela que se extiende más allá de
+la mera narración para convertirse en una crítica. Por ejemplo, Ende defendió
+que la novela expresa el deseo de encontrar la realidad que nos rodea a través
+de recorrer el camino inverso, es decir, la parte interna de cada uno que
+reside en su imaginación</field>
+</record>
+</data>
+</odoo>

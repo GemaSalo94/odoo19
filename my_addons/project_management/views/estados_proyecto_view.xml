@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_estados_proyecto_tree" model="ir.ui.view">
+            <field name="name">estados.proyecto.list</field>
+            <field name="model">project_management.estado</field>
+            <field name="arch" type="xml">
+                <list string="Estados de Proyecto" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_estados_proyecto" model="ir.actions.act_window">
+            <field name="name">Estados de Proyecto</field>
+            <field name="res_model">project_management.estado</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crea el primer estado para tus proyectos
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

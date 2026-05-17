@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="estado_borrador" model="project_management.estado">
+            <field name="name">Borrador</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="estado_planificacion" model="project_management.estado">
+            <field name="name">En planificación</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="estado_ejecucion" model="project_management.estado">
+            <field name="name">En ejecución</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="estado_finalizado" model="project_management.estado">
+            <field name="name">Finalizado</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="estado_cancelado" model="project_management.estado">
+            <field name="name">Cancelado</field>
+            <field name="sequence">50</field>
+        </record>
+    </data>
+</odoo>
